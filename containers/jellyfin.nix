@@ -7,10 +7,7 @@
       "/var/cache/jellyfin:/cache"
       "/home/eve/media/jellyfin:/media"
     ];
-    ports = ["8096:8096"]; # Optional if using host networking
+    #ports = ["8096:8096"]; # Optional if using host networking
     extraOptions = ["--network=host"]; # Important!
-    environment = {
-      TZ = "Europe/London";
-    };
   };
 }
