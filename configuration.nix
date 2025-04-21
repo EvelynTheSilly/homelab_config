@@ -12,6 +12,7 @@
 
     imports = [
         ./hardware_configuration.nix
+        ./containers/pihole.nix
     ];
 
     # Name your host machine
@@ -22,9 +23,13 @@
 
     # Enter keyboard layout
     services.xserver.layout = "us";
+
+    # Vvirtualisation
     virtualisation.docker = {
         enable = true;
     };
+    virtualisation.oci-containers.backend = "docker";
+
     # Define user accounts
     users.users.eve = {
       extraGroups = [ "wheel" "networkmanager" "docker" ];
@@ -41,6 +46,7 @@
       git
       github-cli
       networkmanager
+      zellij
     ];
 
     networking.networkmanager.enable = true;
