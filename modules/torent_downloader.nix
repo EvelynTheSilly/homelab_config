@@ -1,6 +1,7 @@
 {pkgs, ...}:{
   services.transmission = {
     enable = true;
+    home = "/var/lib/transmission";
     settings = {
       download-dir = "/home/eve/media/unsorted"; # Where to save content
       incomplete-dir-enabled = true;
