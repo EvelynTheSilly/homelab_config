@@ -18,7 +18,7 @@ in
     image = "caddy:latest";
     ports = [
         #"80:80"
-        "443:443"
+        #"443:443"
         "443:443/udp"
     ];
     environment = {

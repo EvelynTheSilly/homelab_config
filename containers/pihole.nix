@@ -3,6 +3,7 @@
     image = "pihole/pihole:latest";
     ports = [
         "80:80"
+        "443:443"
       # DNS Ports
       "53:53/tcp"
       "53:53/udp"
