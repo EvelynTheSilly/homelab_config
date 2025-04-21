@@ -58,6 +58,7 @@
     networkmanager
     zellij
     aria2
+    transmission_4
   ];
 
   networking.networkmanager.enable = true;
