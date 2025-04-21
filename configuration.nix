@@ -12,7 +12,7 @@
     ];
 
     # Name your host machine
-    networking.hostName = "homeserver";
+    networking.hostName = "homelab";
 
     # Set your time zone.
     time.timeZone = "Europe/London";
