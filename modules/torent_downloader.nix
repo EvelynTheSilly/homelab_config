@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  ...
 }: let
   torrentProcessor = pkgs.writeShellScriptBin "torrent-processor" ''
     set -euo pipefail
