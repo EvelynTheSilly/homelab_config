@@ -18,28 +18,12 @@
       fsType = "tmpfs";
     };
 
-  fileSystems."/iso" =
-    { device = "/dev/disk/by-uuid/1980-01-01-00-00-00-00";
-      fsType = "iso9660";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/CF38-771C";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
-
-  fileSystems."/nix/.ro-store" =
-    { device = "/iso/nix-store.squashfs";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/nix/.rw-store" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-  fileSystems."/nix/store" =
-    { device = "overlay";
-      fsType = "overlay";
-    };
-
-  swapDevices = [ ];
+  swapDevices = [{device = "/dev/disk/by-uuid/95868776-6308-4518-beac-5d19be9274a5";} ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

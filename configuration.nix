@@ -10,7 +10,7 @@
     boot.loader.systemd-boot.enable = true;
 
     imports = [
-        #./hardware_configuration.nix
+        ./hardware_configuration.nix
     ];
 
     # Name your host machine
