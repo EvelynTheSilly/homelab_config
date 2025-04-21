@@ -21,6 +21,8 @@
     ./hardware_configuration.nix
     ./containers/pihole.nix
     ./containers/jellyfin.nix
+
+    ./modules/torent_downloader.nix
   ];
 
   # Name your host machine
@@ -55,6 +57,7 @@
     github-cli
     networkmanager
     zellij
+    aria2
   ];
 
   networking.networkmanager.enable = true;
