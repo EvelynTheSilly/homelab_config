@@ -19,8 +19,10 @@
 
   imports = [
     ./hardware_configuration.nix
+
     ./containers/pihole.nix
     ./containers/jellyfin.nix
+    ./containers/caddy.nix
 
     ./modules/torent_downloader.nix
   ];

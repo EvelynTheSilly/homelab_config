@@ -7,6 +7,7 @@
     };
     volumes = [
     ];
+    extraOptions = ["--network=caddy"];
     autoStart = true;
   };
 }
