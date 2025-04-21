@@ -2,6 +2,7 @@
   virtualisation.oci-containers.containers.pihole = {
     image = "pihole/pihole:latest";
     ports = [
+        "80:80"
       # DNS Ports
       "53:53/tcp"
       "53:53/udp"
