@@ -17,10 +17,13 @@ in
     ports = [
         "80:80"
         "443:443"
+        "443:443/udp"
     ];
     environment = {
     };
     volumes = [
+        "${Caddyfile}:/etc/caddy/Caddyfile"
+        "/home/eve/caddy/data:/data"
     ];
     extraOptions = ["--network=caddy"];
     autoStart = true;
