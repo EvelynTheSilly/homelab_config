@@ -41,13 +41,13 @@
 in {
   environment.systemPackages = [torrentProcessor];
 
-  systemd.eve.services.torrentProcessor = {
+  systemd.user.services.torrentProcessor = {
     description = "Process incoming torrents using aria2";
     wantedBy = ["default.target"];
     script = "${torrentProcessor}/bin/torrent-processor";
   };
 
-  systemd.eve.paths.torrentWatcher = {
+  systemd.user.paths.torrentWatcher = {
     description = "Watches for new torrent files";
     wantedBy = ["default.target"];
     pathConfig = {
