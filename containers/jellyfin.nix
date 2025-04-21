@@ -10,7 +10,7 @@
     ports = ["8096:8096"]; # Optional if using host networking
     extraOptions = ["--network=host"]; # Important!
     environment = {
-      TZ = "Your/Timezone";
+      TZ = "Europe/London";
     };
   };
 }
