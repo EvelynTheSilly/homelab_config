@@ -17,7 +17,7 @@ let Caddyfile = pkgs.writeTextFile{
 in
 {
   virtualisation.oci-containers.containers.caddy = {
-    image = "foo/caddy:latest"; # 🔁 Change this per service
+    image = "caddy:latest";
     ports = [
         "80:80"
         "443:443"
