@@ -6,9 +6,9 @@
   torrentProcessor = pkgs.writeShellScriptBin "torrent-processor" ''
     set -euo pipefail
 
-    WATCH_DIR="/home/${config.users.users.yourUser.name}/torrents/incoming"
-    DONE_DIR="/home/${config.users.users.yourUser.name}/torrents/finished"
-    DOWNLOAD_DIR="/home/${config.users.users.yourUser.name}/media/docs"
+    WATCH_DIR="/home/${config.users.users.eve.name}/torrents/incoming"
+    DONE_DIR="/home/${config.users.users.eve.name}/torrents/finished"
+    DOWNLOAD_DIR="/home/${config.users.users.eve.name}/media/docs"
 
     SEED_TIME_LIMIT=120  # Stop seeding after 2 hours
 
