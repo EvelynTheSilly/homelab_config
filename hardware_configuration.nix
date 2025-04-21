@@ -14,8 +14,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
+    { device = "/dev/disk/by-uuid/cd5b2b86-b428-41ef-b87e-ff1dc00d8d69";
+      fsType = "vfat";
     };
 
   fileSystems."/boot" =
