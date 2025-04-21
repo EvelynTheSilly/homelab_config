@@ -1,5 +1,5 @@
 {
-  virtualisation.oci-containers.containers.my-container = {
+  virtualisation.oci-containers.containers.jellyfin = {
     image = "jellyfin/jellyfin:latest";
     autoStart = true;
     volumes = [
