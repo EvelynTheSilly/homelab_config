@@ -17,6 +17,6 @@
       seedRatioLimited = true;
     };
     openRPCPort = true;
-    user = "youruser"; # Make sure it's your actual user
+    user = "eve"; # Make sure it's your actual user
   };
 }
