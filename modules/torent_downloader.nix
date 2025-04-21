@@ -18,5 +18,6 @@
     };
     openRPCPort = true;
     user = "eve"; # Make sure it's your actual user
+    group = "users"; # group
   };
 }
