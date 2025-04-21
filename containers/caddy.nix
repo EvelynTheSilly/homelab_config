@@ -1,19 +1,23 @@
 {pkgs, ...}:
-let Caddyfile = pkgs.writeTextFile"Caddyfile"''
-    piholde.home {
-        reverse_proxy pihole:80
-        tls internal
-    }
+let Caddyfile = pkgs.writeTextFile{
+    name = "Caddyfile";
+    text =
+    ''
+        piholde.home {
+            reverse_proxy pihole:80
+            tls internal
+        }
 
-    jellyfin.home {
-        reverse_proxy jellyfin:8096
-        tls internal
-    }
-'';
+        jellyfin.home {
+            reverse_proxy jellyfin:8096
+            tls internal
+        }
+    '';
+};
 in
 {
   virtualisation.oci-containers.containers.caddy = {
-    image = "foo/bar:latest"; # 🔁 Change this per service
+    image = "foo/caddy:latest"; # 🔁 Change this per service
     ports = [
         "80:80"
         "443:443"
