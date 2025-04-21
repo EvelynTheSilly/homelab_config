@@ -3,7 +3,7 @@ let Caddyfile = pkgs.writeTextFile{
     name = "Caddyfile";
     text =
     ''
-        piholde.home {
+        pihole.home {
             reverse_proxy pihole:80
         }
 
