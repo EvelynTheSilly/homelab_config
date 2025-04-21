@@ -8,7 +8,7 @@
       watch-dir-enabled = true;
       watch-dir = "/home/eve/torrents/incoming"; # Drop torrents here
       rpc-enabled = true;
-      rpc-whitelist-enabled = false;
+      rpc-whitelist-enabled = true;
       rpc-whitelist = "127.0.0.1,192.168.*.*"; # Let LAN IPs through
       peer-port = 51413;
       umask = 2; # Make sure files are group-readable
