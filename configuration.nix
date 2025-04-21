@@ -20,6 +20,7 @@
   imports = [
     ./hardware_configuration.nix
     ./containers/pihole.nix
+    ./containers/jellyfin.nix
   ];
 
   # Name your host machine
