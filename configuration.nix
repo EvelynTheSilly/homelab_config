@@ -7,8 +7,10 @@
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    boot.loader.systemd-boot.enable = true;
+
     imports = [
-        ./hardware-configuration.nix
+        ./hardware_configuration.nix
     ];
 
     # Name your host machine
