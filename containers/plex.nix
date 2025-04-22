@@ -9,8 +9,8 @@
     ];
     environment = {
         TZ = "Europe/London";
-        PUID=1000;
-        PGID=1000;
+        PUID="1000";
+        PGID="1000";
         VERSION="docker";
     };
     #ports = ["8096:8096"]; # Optional if using host networking
