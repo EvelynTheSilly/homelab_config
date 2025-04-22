@@ -1,5 +1,5 @@
 {
-  virtualisation.oci-containers.containers.my-container = {
+  virtualisation.oci-containers.containers.registry = {
     image = "registry:2";
     ports = [
         "5000:5000"
