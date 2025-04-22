@@ -23,6 +23,7 @@
     ./containers/pihole.nix
     #./containers/plex.nix i give up
     ./containers/caddy.nix
+    ./containers/registry.nix
 
     ./modules/torent_downloader.nix
   ];
