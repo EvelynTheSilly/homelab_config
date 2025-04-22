@@ -21,7 +21,7 @@
     ./hardware_configuration.nix
 
     ./containers/pihole.nix
-    ./containers/plex.nix
+    #./containers/plex.nix i give up
     ./containers/caddy.nix
 
     ./modules/torent_downloader.nix
