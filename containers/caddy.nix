@@ -19,8 +19,8 @@ in
   virtualisation.oci-containers.containers.caddy = {
     image = "caddy:latest";
     ports = [
-        #"80:80"
-        #"443:443"
+        "80:80"
+        "443:443"
         "443:443/udp"
     ];
     environment = {
