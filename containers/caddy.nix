@@ -5,10 +5,12 @@ let Caddyfile = pkgs.writeTextFile{
     ''
         pihole.home {
             reverse_proxy pihole:80
+            tls internal
         }
 
         jellyfin.home {
             reverse_proxy jellyfin:8096
+            tls internal
         }
     '';
 };
