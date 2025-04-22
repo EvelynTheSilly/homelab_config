@@ -21,7 +21,7 @@
     ./hardware_configuration.nix
 
     ./containers/pihole.nix
-    ./containers/jellyfin.nix
+    ./containers/plex.nix
     ./containers/caddy.nix
 
     ./modules/torent_downloader.nix
