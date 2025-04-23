@@ -12,6 +12,11 @@ let Caddyfile = pkgs.writeTextFile{
             reverse_proxy jellyfin:8096
             tls internal
         }
+
+        registry.eve.home {
+          reverse_proxy registry:5000
+          tls internal
+        }
     '';
 };
 in
