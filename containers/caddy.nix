@@ -17,6 +17,11 @@ let Caddyfile = pkgs.writeTextFile{
           reverse_proxy registry:5000
           tls internal
         }
+
+        eve.home {
+            reverse_proxy homepage:5000
+            tls internal
+        }
     '';
 };
 in
