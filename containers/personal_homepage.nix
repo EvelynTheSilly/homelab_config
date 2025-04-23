@@ -1,6 +1,6 @@
 {
   virtualisation.oci-containers.containers.homepage = {
-    image = "registry/homepage:latest"; # 🔁 Change this per service
+    image = "registry.eve.home/homepage:latest";
     extraOptions = ["--network=caddy"];
     autoStart = true;
   };
