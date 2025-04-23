@@ -19,7 +19,7 @@ let Caddyfile = pkgs.writeTextFile{
         }
 
         eve.home {
-            reverse_proxy homepage
+            reverse_proxy homepage:80
             tls internal
         }
     '';
