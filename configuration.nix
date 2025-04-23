@@ -24,6 +24,7 @@
     #./containers/plex.nix i give up
     ./containers/caddy.nix
     ./containers/registry.nix
+    ./containers/personal_homepage.nix
 
     ./modules/torent_downloader.nix
   ];
