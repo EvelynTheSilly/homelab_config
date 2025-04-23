@@ -107,14 +107,14 @@
 
     networking = {
       networkmanager.enable = true; # Easiest to use and most distros use this by default.
-      nameservers = ["192.168.86.34"];
+      nameservers = ["192.168.86.34" "1.1.1.1"];
       dhcpcd.enable = false; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
       useDHCP = false;
     };
 
     # Force systemd-resolved to use your config
     services.resolved = {
-      enable = true;
+      enable = false;
       fallbackDns = ["1.1.1.1"]; # Again, your homelab first
       domains = ["~."]; # Apply DNS to all domains
       extraConfig = ''
