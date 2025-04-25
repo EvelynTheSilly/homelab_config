@@ -4,7 +4,7 @@
     environmentFiles = [
         /home/eve/cloudflared/.env
     ];
-    cmd = [ "tunnel" "--no-autoupdate" "run" "--token" "$TUNNEL_TOKEN" "--url" "http://caddy:80" ];
+    cmd = [ "echo" "$TUNNEL_TOKEN"];#"tunnel" "--no-autoupdate" "run" "--token" "$TUNNEL_TOKEN" "--url" "http://caddy:80" ];
     extraOptions = ["--network=caddy"];
     autoStart = true;
   };
