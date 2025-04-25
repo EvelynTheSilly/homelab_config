@@ -1,4 +1,4 @@
-{pkgs, ...}:{
+{pkgs, ...}: {
   services.transmission = {
     enable = true;
     home = "/var/lib/transmission";

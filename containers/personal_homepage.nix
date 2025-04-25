@@ -3,10 +3,9 @@
     image = "registry.eve.home/homepage:latest";
     extraOptions = ["--network=caddy" "--pull=always"];
     environment = {
-        ROCKET_ADDRESS = "0.0.0.0";
-        ROCKET_PORT = "8000";
-    }
-    ;
+      ROCKET_ADDRESS = "0.0.0.0";
+      ROCKET_PORT = "8000";
+    };
     autoStart = true;
   };
 }

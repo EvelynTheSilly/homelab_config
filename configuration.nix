@@ -25,6 +25,7 @@
     ./containers/caddy.nix
     ./containers/registry.nix
     ./containers/personal_homepage.nix
+    ./containers/homarr.nix
 
     ./modules/torent_downloader.nix
   ];
@@ -71,26 +72,9 @@
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
 
-
   # System-wide trust
-    security.pki.certificates = [
-      ''
-        -----BEGIN CERTIFICATE-----
-        MIIBozCCAUqgAwIBAgIRAOoSjORGCB9Gb5m5CczYfmAwCgYIKoZIzj0EAwIwMDEu
-        MCwGA1UEAxMlQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gMjAyNSBFQ0MgUm9vdDAe
-        Fw0yNTA0MjEyMzI0MTdaFw0zNTAyMjgyMzI0MTdaMDAxLjAsBgNVBAMTJUNhZGR5
-        IExvY2FsIEF1dGhvcml0eSAtIDIwMjUgRUNDIFJvb3QwWTATBgcqhkjOPQIBBggq
-        hkjOPQMBBwNCAASkvxQ9SBRzvRTGp0CFKWKWz3SWLphLvQs34U32+3RIg4bHYFgL
-        DJQ4VsFH0dnQbVvBNH2jEEaoTgJ1tez9BPIUo0UwQzAOBgNVHQ8BAf8EBAMCAQYw
-        EgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUyre8Mn7EBjT2wboQ3XLTcT7H
-        J08wCgYIKoZIzj0EAwIDRwAwRAIgB0c7j7uNn/Lz6VGOBYlWIZV5+HYYYjtr4d5q
-        HnIya0ECIGay1+XiTSVrgvl+z6NTainJNAwWBbc/68WnMJcfH0I2
-        -----END CERTIFICATE-----
-      ''
-    ];
-
-    # Docker trust for local registry
-    environment.etc."docker/certs.d/registry.eve.home/ca.crt".text = ''
+  security.pki.certificates = [
+    ''
       -----BEGIN CERTIFICATE-----
       MIIBozCCAUqgAwIBAgIRAOoSjORGCB9Gb5m5CczYfmAwCgYIKoZIzj0EAwIwMDEu
       MCwGA1UEAxMlQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gMjAyNSBFQ0MgUm9vdDAe
@@ -102,27 +86,41 @@
       J08wCgYIKoZIzj0EAwIDRwAwRAIgB0c7j7uNn/Lz6VGOBYlWIZV5+HYYYjtr4d5q
       HnIya0ECIGay1+XiTSVrgvl+z6NTainJNAwWBbc/68WnMJcfH0I2
       -----END CERTIFICATE-----
+    ''
+  ];
+
+  # Docker trust for local registry
+  environment.etc."docker/certs.d/registry.eve.home/ca.crt".text = ''
+    -----BEGIN CERTIFICATE-----
+    MIIBozCCAUqgAwIBAgIRAOoSjORGCB9Gb5m5CczYfmAwCgYIKoZIzj0EAwIwMDEu
+    MCwGA1UEAxMlQ2FkZHkgTG9jYWwgQXV0aG9yaXR5IC0gMjAyNSBFQ0MgUm9vdDAe
+    Fw0yNTA0MjEyMzI0MTdaFw0zNTAyMjgyMzI0MTdaMDAxLjAsBgNVBAMTJUNhZGR5
+    IExvY2FsIEF1dGhvcml0eSAtIDIwMjUgRUNDIFJvb3QwWTATBgcqhkjOPQIBBggq
+    hkjOPQMBBwNCAASkvxQ9SBRzvRTGp0CFKWKWz3SWLphLvQs34U32+3RIg4bHYFgL
+    DJQ4VsFH0dnQbVvBNH2jEEaoTgJ1tez9BPIUo0UwQzAOBgNVHQ8BAf8EBAMCAQYw
+    EgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUyre8Mn7EBjT2wboQ3XLTcT7H
+    J08wCgYIKoZIzj0EAwIDRwAwRAIgB0c7j7uNn/Lz6VGOBYlWIZV5+HYYYjtr4d5q
+    HnIya0ECIGay1+XiTSVrgvl+z6NTainJNAwWBbc/68WnMJcfH0I2
+    -----END CERTIFICATE-----
+  '';
+
+  networking = {
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    }; # Easiest to use and most distros use this by default.
+    nameservers = ["192.168.86.34" "1.1.1.1"];
+    dhcpcd.enable = false; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
+    useDHCP = false;
+  };
+
+  # Force systemd-resolved to use your config
+  services.resolved = {
+    enable = false;
+    fallbackDns = ["1.1.1.1"]; # Again, your homelab first
+    domains = ["~."]; # Apply DNS to all domains
+    extraConfig = ''
+      DNSStubListener=yes
     '';
-
-
-    networking = {
-      networkmanager = {
-          enable = true;
-          dns = "none";
-      }; # Easiest to use and most distros use this by default.
-      nameservers = ["192.168.86.34" "1.1.1.1"];
-      dhcpcd.enable = false; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
-      useDHCP = false;
-    };
-
-    # Force systemd-resolved to use your config
-    services.resolved = {
-      enable = false;
-      fallbackDns = ["1.1.1.1"]; # Again, your homelab first
-      domains = ["~."]; # Apply DNS to all domains
-      extraConfig = ''
-        DNSStubListener=yes
-      '';
-    };
-
+  };
 }
