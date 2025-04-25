@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstable-packages,
   ...
 }: {
   # Import other configuration modules
