@@ -1,14 +1,8 @@
 {lib, ...}:
-let
-    readkey = builtins.readFile /home/eve/homarr-key;
-in
 {
   # imports = ["${unstable-packages}/nixos/modules/virtualisations/oci-containers"];
   virtualisation.oci-containers.containers.homarr = {
     image = "ghcr.io/homarr-labs/homarr:latest";
-    ports = [
-        "7575:7575"
-    ];
     environmentFiles = [
         /home/eve/homarr.env
     ];
