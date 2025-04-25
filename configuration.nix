@@ -27,6 +27,7 @@
     ./containers/registry.nix
     ./containers/personal_homepage.nix
     ./containers/homarr.nix
+    ./containers/tunnel.nix
 
     ./modules/torent_downloader.nix
   ];
