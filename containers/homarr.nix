@@ -5,14 +5,14 @@
     ports = [
         "7575:7575"
     ];
+    environment = {
+        SECRET_ENCRYPTION_KEY = builtins.readFile /home/eve/homarr-key;
+    };
     volumes = [
         "/var/run/docker.sock:/var/run/docker.sock" # Optional, only if you want docker integration
         "home/eve/homarr/appdata:/appdata"
     ];
     extraOptions = ["--network=caddy"];
     autoStart = true;
-  };
-  systemd.services."docker-homarr" = {
-      EnvironmentFile = "/etc/homarr-secrets/envfile";
   };
 }
