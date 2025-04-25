@@ -1,4 +1,6 @@
-{unstable-packages,...}:{
+let
+    unstable-packages = import nixpkgs-unstable { inherit system; };
+in{
   imports = [
       "${unstable-packages}/nixos/modules/virtualisations/oci-containers"
   ];
