@@ -10,7 +10,7 @@
     };
     volumes = [
         "/var/run/docker.sock:/var/run/docker.sock" # Optional, only if you want docker integration
-        "home/eve/homarr/appdata:/appdata"
+        "/home/eve/homarr/appdata:/appdata"
     ];
     extraOptions = ["--network=caddy"];
     autoStart = true;
