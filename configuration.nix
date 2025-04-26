@@ -67,6 +67,9 @@
     zellij
     aria2
     transmission_4
+    cowsay
+    lolcat
+    figlet
   ];
 
   services.dbus.enable = true;
