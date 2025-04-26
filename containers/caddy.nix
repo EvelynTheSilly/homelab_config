@@ -2,6 +2,10 @@
   Caddyfile = pkgs.writeTextFile {
     name = "Caddyfile";
     text = ''
+    eve.software {
+        reverse_proxy homepage:8000
+    }
+
     pihole.home {
         reverse_proxy pihole:80
         tls internal
