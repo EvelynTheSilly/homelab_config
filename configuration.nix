@@ -26,8 +26,8 @@
     ./containers/caddy.nix
     ./containers/registry.nix
     ./containers/personal_homepage.nix
-    ./containers/homarr.nix
-    ./containers/tunnel.nix
+    #./containers/homarr.nix
+    #./containers/tunnel.nix
 
     ./modules/torent_downloader.nix
   ];
@@ -117,15 +117,5 @@
     nameservers = ["192.168.1.65" "1.1.1.1"];
     dhcpcd.enable = false; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
     useDHCP = false;
-  };
-
-  # Force systemd-resolved to use your config
-  services.resolved = {
-    enable = false;
-    fallbackDns = ["1.1.1.1"]; # Again, your homelab first
-    domains = ["~."]; # Apply DNS to all domains
-    extraConfig = ''
-      DNSStubListener=yes
-    '';
   };
 }
