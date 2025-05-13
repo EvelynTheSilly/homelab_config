@@ -6,6 +6,13 @@
         reverse_proxy homepage:8000
     }
 
+    blog.eve.software {
+        route * {
+            uri prepend /blog
+            reverse_proxy homepage:8000
+        }
+    }
+
     pihole.home {
         reverse_proxy pihole:80
         tls internal
