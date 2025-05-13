@@ -6,11 +6,8 @@
         reverse_proxy homepage:8000
     }
 
-    blog.eve.software {
-        route * {
-            uri prepend /blog
-            reverse_proxy homepage:8000
-        }
+    dev.eve.software {
+        reverse_proxy dev:8000
     }
 
     pihole.home {
