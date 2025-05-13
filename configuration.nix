@@ -22,6 +22,7 @@
     ./hardware_configuration.nix
 
     ./containers/pihole.nix
+    ./containers/dev_container.nix
     #./containers/plex.nix i give up
     ./containers/caddy.nix
     ./containers/registry.nix
