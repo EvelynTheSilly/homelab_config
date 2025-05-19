@@ -31,6 +31,7 @@
     #./containers/tunnel.nix
 
     ./modules/torent_downloader.nix
+    ./modules/vm_management.nix
   ];
 
   # Name your host machine
@@ -50,7 +51,7 @@
 
   # Define user accounts
   users.users.eve = {
-    extraGroups = ["wheel" "networkmanager" "docker"];
+    extraGroups = ["wheel" "libvirtd" "networkmanager" "docker"];
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA2bnr88G2H2/BnK4U7zvIqOv+x2GbkWJuWnFYuyXbFP"
