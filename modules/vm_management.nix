@@ -13,7 +13,7 @@
     dnsmasq
     bridge-utils
     # useful for remote graphical forwarding
-    xauth
+    xorg.xauth
   ];
 
   # Needed for QEMU/KVM networking
