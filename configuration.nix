@@ -131,7 +131,7 @@ systemd.services.request-fixed-ip = {
   after = [ "NetworkManager-wait-online.service" ];
   serviceConfig.Type = "oneshot";
   script = ''
-    ${pkgs.iproute2}/bin/ip addr add 192.168.86.104/24 dev wlo1
+    ${pkgs.iproute2}/bin/ip addr replace 192.168.86.104/24 dev wlo1
     for addr in $(${pkgs.iproute2}/bin/ip -o addr show dev wlo1 primary | awk '{print $4}'); do
       [ "$addr" != "192.168.86.104/24" ] && ${pkgs.iproute2}/bin/ip addr del "$addr" dev wlo1
     done
