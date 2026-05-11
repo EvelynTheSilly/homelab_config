@@ -23,7 +23,7 @@
   virtualisation.oci-containers.containers.llama-cpp = {
     image = "ghcr.io/ggml-org/llama.cpp:server-cuda";
     ports = [
-      "127.0.0.1:8080:8080"
+      "8080:8080"
     ];
     environment = {
     };
