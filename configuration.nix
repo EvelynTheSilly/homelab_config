@@ -17,7 +17,7 @@
       HandleLidSwitch = "ignore";
       HandleLidSwitchDocked = "ignore";
       HandleLidSwitchExternalPower = "ignore";
-    };  
+    };
   };
 
   imports = [
@@ -79,7 +79,7 @@
   # Enable the OpenSSH daemon
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
-  services.openssh.ports = [ 2222 ];
+  services.openssh.ports = [2222];
 
   services.ddclient = {
     enable = true;
@@ -87,7 +87,7 @@
     zone = "eve.software";
     username = "token";
     passwordFile = "/home/eve/.cloudflare-token";
-    domains = [ "eve.software" "*.eve.software" ];
+    domains = ["eve.software" "*.eve.software"];
     ssl = true;
     usev4 = "web";
     interval = "5min";
@@ -125,23 +125,23 @@
     -----END CERTIFICATE-----
   '';
 
-systemd.services.request-fixed-ip = {
-  wantedBy = [ "network-online.target" ];
-  after = [ "NetworkManager-wait-online.service" ];
-  serviceConfig.Type = "oneshot";
-  script = ''
-    ${pkgs.iproute2}/bin/ip addr replace 192.168.86.104/24 dev wlo1
-    for addr in $(${pkgs.iproute2}/bin/ip -o addr show dev wlo1 primary | awk '{print $4}'); do
-      [ "$addr" != "192.168.86.104/24" ] && ${pkgs.iproute2}/bin/ip addr del "$addr" dev wlo1
-    done
-  '';
-};
+  systemd.services.request-fixed-ip = {
+    wantedBy = ["network-online.target"];
+    after = ["NetworkManager-wait-online.service"];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.iproute2}/bin/ip addr replace 192.168.86.104/24 dev wlo1
+      for addr in $(${pkgs.iproute2}/bin/ip -o addr show dev wlo1 primary | awk '{print $4}'); do
+        [ "$addr" != "192.168.86.104/24" ] && ${pkgs.iproute2}/bin/ip addr del "$addr" dev wlo1
+      done
+    '';
+  };
 
   networking = {
-    firewall.allowedTCPPorts = [ 80 443 2222 ];
+    firewall.allowedTCPPorts = [80 443 2222];
     networkmanager = {
       enable = true;
-           dns = "none";
+      dns = "none";
     }; # Easiest to use and most distros use this by default.
     nameservers = ["192.168.1.65" "1.1.1.1"];
     dhcpcd.enable = false; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
