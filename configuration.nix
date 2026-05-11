@@ -80,6 +80,7 @@
   # Enable the OpenSSH daemon
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
+  services.openssh.ports = [ 2222 ];
 
   services.ddclient = {
     enable = true;
@@ -138,7 +139,7 @@ systemd.services.request-fixed-ip = {
 };
 
   networking = {
-    firewall.allowedTCPPorts = [ 80 443 ];
+    firewall.allowedTCPPorts = [ 80 443 2222 ];
     networkmanager = {
       enable = true;
            dns = "none";
