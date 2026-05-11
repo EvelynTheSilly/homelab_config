@@ -50,7 +50,7 @@
   virtualisation.docker = {
     enable = true;
   };
-  virtualisation.oci-containers.backend = "podman";
+  virtualisation.oci-containers.backend = "docker";
 
   # Define user accounts
   users.users.eve = {
