@@ -26,6 +26,7 @@
     ./containers/pihole.nix
     ./containers/dev_container.nix
     ./containers/llama.nix
+    ./containers/openwebui.nix
     #./containers/plex.nix i give up
     ./containers/caddy.nix
     ./containers/registry.nix
