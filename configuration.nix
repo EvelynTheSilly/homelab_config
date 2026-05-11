@@ -62,7 +62,7 @@
   # Install some packages
   environment.systemPackages = with pkgs; [
     docker
-    helix
+    evil-helix
     git
     github-cli
     networkmanager
@@ -112,12 +112,16 @@
   '';
 
   networking = {
+     interfaces.wlo1.ipv4.addresses = [{
+      address = "192.168.86.101";
+      prefixLength = 24;
+    }];
     networkmanager = {
       enable = true;
-      dns = "none";
+           dns = "none";
     }; # Easiest to use and most distros use this by default.
     nameservers = ["192.168.1.65" "1.1.1.1"];
-    dhcpcd.enable = false; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
+    dhcpcd.enable = true; # Optional: disable dhcpcd if you're using NetworkManager or systemd-networkd
     useDHCP = false;
   };
 }
