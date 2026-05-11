@@ -7,7 +7,7 @@
     volumes = [
       "/home/eve/open_web_ui:/app/backend/data"
     ];
-    extraOptions = ["--network=caddy"];
+    extraOptions = ["--network=caddy" "--add-host=host.docker.internal:host-gateway"];
     autoStart = true;
   };
 }
