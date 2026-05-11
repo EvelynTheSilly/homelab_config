@@ -91,7 +91,7 @@
     domains = [ "eve.software" "*.eve.software" ];
     ssl = true;
     usev4 = "web";
-    daemon = "300";
+    interval = "5min";
   };
 
   # System-wide trust
