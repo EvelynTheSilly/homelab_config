@@ -81,6 +81,18 @@
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
 
+  services.ddclient = {
+    enable = true;
+    protocol = "cloudflare";
+    zone = "eve.software";
+    username = "token";
+    passwordFile = "/home/eve/.cloudflare-token";
+    domains = [ "eve.software" "*.eve.software" ];
+    ssl = true;
+    usev4 = "web";
+    daemon = "300";
+  };
+
   # System-wide trust
   security.pki.certificates = [
     ''
@@ -126,6 +138,7 @@ systemd.services.request-fixed-ip = {
 };
 
   networking = {
+    firewall.allowedTCPPorts = [ 80 443 ];
     networkmanager = {
       enable = true;
            dns = "none";
