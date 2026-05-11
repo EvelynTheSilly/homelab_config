@@ -1,4 +1,4 @@
-{config}: {
+{lib, config, pkgs}: {
   # NVIDIA container toolkit for CDI (modern GPU passthrough)
   hardware.nvidia-container-toolkit.enable = true;
   # Load nvidia driver for Xorg
