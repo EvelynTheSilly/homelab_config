@@ -56,8 +56,7 @@
     extraGroups = ["wheel" "libvirtd" "networkmanager" "docker"];
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA2bnr88G2H2/BnK4U7zvIqOv+x2GbkWJuWnFYuyXbFP"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHA8cx1lFAwBUSoBFi4631p21YAtQj02XAurubJ0bCnw"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDM4BGL6JJy6eGWzoHsYn2jWlkwXxuh2X1bzbdoRzHWi"
     ];
   };
 
