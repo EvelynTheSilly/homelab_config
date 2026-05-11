@@ -27,7 +27,7 @@
     ];
     environment = {
     };
-    volumes = ["/path/to/models:/models:ro"];
+    volumes = ["/home/eve/llama/models:/models:ro"];
     extraOptions = [
       "--network=caddy"
       "--device=nvidia.com/gpu=all"
