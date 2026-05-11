@@ -1,6 +1,17 @@
-{
+{config}: {
   # NVIDIA container toolkit for CDI (modern GPU passthrough)
   hardware.nvidia-container-toolkit.enable = true;
+  # Load nvidia driver for Xorg
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    #Beta nvidia driver, use stable for latest stable
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
   # Podman (OCI backend)
   virtualisation.podman = {
     enable = true;
@@ -23,7 +34,7 @@
     ];
 
     cmd = [
-      "-m" "/models/your-model.gguf"
+      "-m" "/models/active_model.gguf"
       "--host" "0.0.0.0"
       "--port" "8080"
       "-ngl" "99"
