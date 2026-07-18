@@ -92,6 +92,7 @@
     domains = ["eve.software" "*.eve.software"];
     ssl = true;
     usev4 = "web";
+    webv4 = "ipify";
     interval = "5min";
   };
 
