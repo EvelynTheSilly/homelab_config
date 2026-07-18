@@ -91,7 +91,6 @@
     passwordFile = "/home/eve/.cloudflare-token";
     domains = ["eve.software" "*.eve.software"];
     ssl = true;
-    usev4 = "webv4=ipify";
     interval = "5min";
   };
 
