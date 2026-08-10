@@ -1,14 +1,12 @@
 {
-  description = "Minimal flake for NixOS config";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
 
-  outputs = {nixpkgs, ...}: {
-    nixosConfigurations.homelab = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-      ];
-    };
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
 }
