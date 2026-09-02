@@ -23,4 +23,5 @@
     ];
 
     services.dbus.enable = true;
-  }
+  };
+}

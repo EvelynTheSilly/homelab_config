@@ -9,6 +9,6 @@
     # Set your time zone.
     time.timeZone = "Europe/London";
     # Enter keyboard layout
-    services.xserver.layout = "us";
+    services.xserver.xkb.layout = "us";
   };
 }

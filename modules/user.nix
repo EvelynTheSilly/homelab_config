@@ -5,7 +5,7 @@
 }: {
   flake.nixosModules.user = {pkgs, ...}: {
     # Define user accounts
-    users.users.eve = {
+    users.users.evelyn = {
       extraGroups = ["wheel" "libvirtd" "networkmanager" "docker"];
       isNormalUser = true;
     };
@@ -13,7 +13,6 @@
     # Install some packages
     environment.systemPackages = with pkgs; [
       docker
-      evil-helix
       git
       github-cli
       networkmanager
@@ -23,7 +22,10 @@
       cowsay
       lolcat
       figlet
-    ];
+    ] ++ (with inputs.nix_common.packages; [
+      helix
+      nushell
+    ]);
 
     system.stateVersion = "26.05";
   };
