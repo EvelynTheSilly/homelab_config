@@ -3,7 +3,10 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.container_pihole = {...}: {
+  flake.nixosModules.container_pihole = {
+    config,
+    ...
+  }: {
     virtualisation.oci-containers.containers.pihole = {
       image = "pihole/pihole:latest";
       ports = [
@@ -19,9 +22,11 @@
       ];
       environment = {
         TZ = "Europe/London";
-        FTLCONF_webserver_api_password = "correct horse battery staple";
         FTLCONF_dns_listeningMode = "all";
       };
+      environmentFiles = [
+        config.sops.secrets.pihole_api_password.path
+      ];
       volumes = [
         "./etc-pihole:/etc/pihole"
       ];

@@ -53,7 +53,7 @@
       };
       volumes = [
         "${Caddyfile}:/etc/caddy/Caddyfile"
-        "/home/eve/caddy/data:/data"
+        "/home/evelyn/caddy/data:/data"
       ];
       extraOptions = ["--network=caddy"];
       autoStart = true;

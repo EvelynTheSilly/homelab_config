@@ -14,6 +14,8 @@
       self.nixosModules.networking
       self.nixosModules.sshd
 
+      self.nixosModules.sops
+
       self.nixosModules.container_pihole
       self.nixosModules.container_dev_container
       self.nixosModules.container_llama

@@ -32,7 +32,7 @@
       ];
       environment = {
       };
-      volumes = ["/home/eve/llama/models:/models"];
+      volumes = ["/home/evelyn/llama/models:/models"];
       extraOptions = [
         "--network=caddy"
         "--device=nvidia.com/gpu=all"

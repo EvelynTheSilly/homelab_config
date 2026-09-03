@@ -3,13 +3,16 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.ddClinet = {...}: {
+  flake.nixosModules.ddClinet = {
+    config,
+    ...
+  }: {
     services.ddclient = {
       enable = true;
       protocol = "cloudflare";
       zone = "eve.software";
       username = "token";
-      passwordFile = "/home/eve/.cloudflare-token";
+      passwordFile = config.sops.secrets.cloudflare_api_token.path;
       domains = ["eve.software" "*.eve.software"];
       ssl = true;
       interval = "5min";

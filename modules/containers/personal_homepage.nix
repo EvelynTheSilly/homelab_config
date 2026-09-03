@@ -15,7 +15,7 @@
         ROCKET_PORT = "8000";
       };
       volumes = [
-        "/home/eve/static:/workspace/homepage/webserver/static"
+        "/home/evelyn/static:/workspace/homepage/webserver/static"
       ];
       autoStart = true;
     };

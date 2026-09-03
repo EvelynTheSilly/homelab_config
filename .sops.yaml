@@ -1,0 +1,9 @@
+keys:
+  - &workstation age180d438wsh2wjnq6zeylw46fcyqhfj5fmfxm6329lupruemr6zcrqkwzqx0
+  - &homelab_host age1xdhp94ranl6uw9zrf09sj5dl9750denqlyuapl07d4ldzz2ucdmqnuu4r3
+creation_rules:
+  - path_regex: \.ya?ml$
+    key_groups:
+      - age:
+          - *workstation
+          - *homelab_host

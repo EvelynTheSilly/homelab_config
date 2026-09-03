@@ -10,7 +10,7 @@
         "5000:5000"
       ];
       volumes = [
-        "/home/eve/docker-registry:/var/lib/registry"
+        "/home/evelyn/docker-registry:/var/lib/registry"
       ];
       extraOptions = ["--network=caddy"];
       autoStart = true;

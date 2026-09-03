@@ -8,9 +8,9 @@
       image = "lscr.io/linuxserver/plex:latest";
       autoStart = true;
       volumes = [
-        "/home/eve/plex/library:/config"
-        "/home/eve/plex/tv:/tv"
-        "/home/eve/plex/movies:/movies"
+        "/home/evelyn/plex/library:/config"
+        "/home/evelyn/plex/tv:/tv"
+        "/home/evelyn/plex/movies:/movies"
       ];
       environment = {
         TZ = "Europe/London";
